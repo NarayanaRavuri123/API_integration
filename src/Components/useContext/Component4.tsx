@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { userContext } from './Component1';
-import { IuserContext } from './Contextvaluestypes';
+import { IuserContext } from './Contextvalues.interface';
 
 
 const Component4 = () => {
   const contextData:IuserContext = useContext(userContext);
-  console.log(contextData.);
+  console.log(contextData);
   return (
     <div>
       <p>component 4</p>
-      <p>{contextData}</p>
+      <p>{contextData.emailAddress}</p>
     </div>
   )
 }

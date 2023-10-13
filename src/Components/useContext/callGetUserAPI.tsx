@@ -1,6 +1,6 @@
 //axios library is installed to call make the API call
 import axios from "axios";
-import { IuserContext } from "./Contextvaluestypes";
+import { IuserContext } from "./Contextvalues.interface";
 import { AccessToken } from "./AccessToken";
 
 

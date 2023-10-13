@@ -7,7 +7,7 @@ export interface Ifacility {
     number: number;
     typeCode: string;
     typeName: string;
-    siteUseId: string;
+    siteUseId: number;
     careGiverId: string | null | any;
     facilityName: string | null | any ;
     address1: string | null;

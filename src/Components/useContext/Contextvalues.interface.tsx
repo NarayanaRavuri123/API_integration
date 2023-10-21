@@ -27,7 +27,7 @@ export interface IuserContext {
     userName: string;
     emailAddress: string,
     phoneNumber: string | any;
-    mobilePhoneNumber: string | null | unknown ; 
+    mobilePhoneNumber: string | null  ; 
     licenceType: string;
     departmentName: string;
     title: string;

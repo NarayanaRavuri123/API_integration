@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 import Component2 from './Component2';
 import { callGetUserAPI } from './callGetUserAPI';
-import { useEffect } from 'react';
 import { IuserContext } from './Contextvalues.interface';
+import { Button, CircularProgress, TextField } from '@mui/material';
 
 const sampleContextData = {
   "firstName": "",
@@ -50,23 +50,41 @@ const userContext = createContext<IuserContext>(sampleContextData);
 
 const Component1 = () => {
   const [data, setData] = useState(sampleContextData);
-  useEffect(() => {
-    
-       const fecthData = async () => {
-      const result = await callGetUserAPI();
+  const [email,setEmail] = useState('');
+
+  const submitHandler = () => {
+    const fecthData = async () => {
+      const result = await callGetUserAPI(email);
       setData(result);
     }
     fecthData();
-   
-    
-  },[]);
+  }
+
+  const changeHandler = (e:any) => {
+    setEmail(e.target.value);
+  }
 
   return (
     <div>
       <p>component 1</p>
-      <h1>data</h1>
+      <TextField
+      sx={{width:'30vw'}}
+      onChange={changeHandler}
+      >
+
+      </TextField>
+      <Button 
+      variant='contained'
+      sx={{marginLeft:'5vw'}}
+      onClick={submitHandler}
+      >
+        Submit
+      </Button>
+
       <userContext.Provider value={data}>
-        <Component2 />
+        {
+          data ? (<Component2/>) : (<CircularProgress/>)
+        }
       </userContext.Provider>
 
 
@@ -74,4 +92,4 @@ const Component1 = () => {
   )
 }
 
-export {userContext,Component1};
+export { userContext, Component1 };

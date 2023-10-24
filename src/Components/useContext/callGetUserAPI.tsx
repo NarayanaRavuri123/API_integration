@@ -4,12 +4,12 @@ import { IuserContext } from "./Contextvalues.interface";
 import { AccessToken } from "./AccessToken";
 
 
-export const callGetUserAPI = async () => {
+export const callGetUserAPI = async (Email:String) => {
     const URL = "https://ionhealing-nonprod.acelity.com/3ME.servicesTest/api/User/GetUser";
 
         try {
             const response = await axios.post(URL, {
-                "userName": "narayana.ravuri+234@healthasyst.com"
+                "userName": `${Email}`
             },
             {
                 headers: {
